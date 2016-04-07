@@ -13,7 +13,7 @@ Quinten De Swaef;
 [[overview-http-verbs]]
 == HTTP verbs
 
-RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
+RESTful beers tries to adhere as closely as possible to standard HTTP and REST conventions in its
 use of HTTP verbs.
 
 |===
@@ -35,7 +35,7 @@ use of HTTP verbs.
 [[overview-http-status-codes]]
 == HTTP status codes
 
-RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
+RESTful beers tries to adhere as closely as possible to standard HTTP and REST conventions in its
 use of HTTP status codes.
 
 |===
@@ -64,9 +64,9 @@ use of HTTP status codes.
 The Beers resource is used to list beers
 
 [[resources-beer-list]]
-=== Listing notes
+=== Listing beers
 
-A `GET` request will list all of the service's notes.
+A `GET` request will list all of the service's beers.
 
 ==== Example request
 
@@ -75,3 +75,40 @@ include::{snippets}/beer-list-example/curl-request.adoc[]
 ==== Example response
 
 include::{snippets}/beer-list-example/http-response.adoc[]
+
+[[resources-get-beer]]
+=== fetching a single beer
+
+A `GET` request will list a single beer
+
+==== Beer response structure
+
+include::{snippets}/beer-by-id-example/response-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/beer-by-id-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/beer-by-id-example/http-response.adoc[]
+
+[[resources-create-beer]]
+=== Creating a beer
+
+A `POST` request will create a beer
+
+==== Request structure
+
+include::{snippets}/create-beer-example/request-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/create-beer-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/create-beer-example/http-response.adoc[]
+
+
+
