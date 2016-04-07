@@ -63,14 +63,10 @@ use of HTTP status codes.
 
 The Beers resource is used to list beers
 
-[[resources-notes-list]]
+[[resources-beer-list]]
 === Listing notes
 
 A `GET` request will list all of the service's notes.
-
-==== Response structure
-
-include::{snippets}/beer-list-example/response-fields.adoc[]
 
 ==== Example request
 

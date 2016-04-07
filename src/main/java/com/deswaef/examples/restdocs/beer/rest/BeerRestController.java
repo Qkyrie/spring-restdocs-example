@@ -4,11 +4,10 @@ import com.deswaef.examples.restdocs.beer.model.Beer;
 import com.deswaef.examples.restdocs.beer.rest.hateos.BeerResource;
 import com.deswaef.examples.restdocs.beer.service.BeerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +15,7 @@ import java.util.stream.Collectors;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
 @RequestMapping(value = "/beers")
@@ -45,7 +45,19 @@ public class BeerRestController {
                 constructBeerResource(theBeer),
                 HttpStatus.OK
         );
+    }
 
+    @RequestMapping(method = POST)
+    @ResponseStatus(HttpStatus.CREATED)
+    public HttpHeaders create(@RequestBody BeerResource noteInput) {
+        Beer note = new Beer();
+        note.setAlcoholPercentage(Double.valueOf(noteInput.getAlcohol()));
+        note.setName(noteInput.getName());
+        this.beerService.save(note);
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders
+                .setLocation(linkTo(BeerRestController.class).slash(note.getId()).toUri());
+        return httpHeaders;
     }
 
     private BeerResource constructBeerResource(Beer theBeer) {

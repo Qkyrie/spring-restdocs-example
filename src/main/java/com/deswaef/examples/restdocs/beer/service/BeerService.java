@@ -25,4 +25,7 @@ public class BeerService {
         return beerRepository.findOne(id);
     }
 
+    public void save(Beer beer) {
+        beerRepository.save(beer);
+    }
 }

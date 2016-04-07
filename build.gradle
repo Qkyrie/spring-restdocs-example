@@ -59,6 +59,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
 	compile('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
 	compile 'org.springframework.restdocs:spring-restdocs-mockmvc:1.0.1.RELEASE'
+	testCompile 'com.jayway.jsonpath:json-path'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
