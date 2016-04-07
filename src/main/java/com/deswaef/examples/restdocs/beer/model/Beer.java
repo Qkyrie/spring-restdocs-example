@@ -18,6 +18,33 @@ public class Beer {
 		this.alcoholPercentage = alcoholPercentage;
 	}
 
+	public String getId() {
+		return id;
+	}
+
+	public Beer setId(String id) {
+		this.id = id;
+		return this;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public Beer setName(String name) {
+		this.name = name;
+		return this;
+	}
+
+	public Double getAlcoholPercentage() {
+		return alcoholPercentage;
+	}
+
+	public Beer setAlcoholPercentage(Double alcoholPercentage) {
+		this.alcoholPercentage = alcoholPercentage;
+		return this;
+	}
+
 	@Override public String toString() {
 		return "Beer{" +
 				"id='" + id + '\'' +
